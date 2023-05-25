@@ -45,6 +45,11 @@ class Thermostat {
     }
   }
 
+  reset() {
+    this.temperature = 20;
+    return this.temperature;
+  }
+
   setTempTo10() {
     // used for tests to avoid repetiton of thermostat.down()
     this.temperature = 10;
