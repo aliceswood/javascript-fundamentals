@@ -19,7 +19,6 @@ class Thermostat {
     } else {
       let newTemp = this.temperature + 1;
       this.temperature = newTemp;
-      return newTemp;
     }
   }
 
@@ -29,7 +28,6 @@ class Thermostat {
     } else {
       let newTemp = this.temperature - 1;
       this.temperature = newTemp;
-      return newTemp;
     }
   }
 
