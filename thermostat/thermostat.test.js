@@ -26,4 +26,9 @@ describe("Thermostat", () => {
       thermostat.down();
     }).toThrow("Thermostat is already set to min: 10");
   });
+
+  it("has PowerSaving mode on by default, returns true", () => {
+    const thermostat = new Thermostat();
+    expect(thermostat.getPowerSavingStatus()).toEqual(true);
+  });
 });

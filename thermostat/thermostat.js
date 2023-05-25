@@ -1,6 +1,7 @@
 class Thermostat {
   constructor() {
     this.temperature = 20;
+    this.powersaving = true;
   }
 
   getTemperature() {
@@ -26,6 +27,10 @@ class Thermostat {
   setTempTo10() {
     // used for tests to avoid repetiton of thermostat.down()
     this.temperature = 10;
+  }
+
+  getPowerSavingStatus() {
+    return this.powersaving;
   }
 }
 module.exports = Thermostat;
