@@ -18,4 +18,12 @@ describe("Thermostat", () => {
     thermostat.down();
     expect(thermostat.getTemperature()).toBe(19);
   });
+
+  it("throws an error if the thermostat tries to go below 10 degrees", () => {
+    const thermostat = new Thermostat();
+    thermostat.setTempTo10();
+    expect(() => {
+      thermostat.down();
+    }).toThrow("Thermostat is already set to min: 10");
+  });
 });

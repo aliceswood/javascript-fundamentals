@@ -14,9 +14,18 @@ class Thermostat {
   }
 
   down() {
-    let newTemp = this.temperature - 1;
-    this.temperature = newTemp;
-    return newTemp;
+    if (this.temperature <= 10) {
+      throw new Error("Thermostat is already set to min: 10");
+    } else {
+      let newTemp = this.temperature - 1;
+      this.temperature = newTemp;
+      return newTemp;
+    }
+  }
+
+  setTempTo10() {
+    // used for tests to avoid repetiton of thermostat.down()
+    this.temperature = 10;
   }
 }
 module.exports = Thermostat;
