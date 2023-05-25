@@ -51,4 +51,13 @@ describe("Thermostat", () => {
       thermostat.up();
     }).toThrow("Thermostat is already set to PowerSaving max: 25");
   });
+  
+  it("caps the temperature at 32 degrees is PowerSaving is off", () => {
+    const thermostat = new Thermostat();
+    thermostat.changePowerSavingStatus();
+    thermostat.nonPowerSavingSetMax();
+    expect(() => {
+      thermostat.up();
+    }).toThrow("Thermostat is already set to max: 32");
+  });
 });

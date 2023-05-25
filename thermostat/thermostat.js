@@ -11,6 +11,11 @@ class Thermostat {
   up() {
     if (this.getPowerSavingStatus() === true && this.temperature === 25) {
       throw new Error("Thermostat is already set to PowerSaving max: 25");
+    } else if (
+      this.getPowerSavingStatus() === false &&
+      this.temperature === 32
+    ) {
+      throw new Error("Thermostat is already set to max: 32");
     } else {
       let newTemp = this.temperature + 1;
       this.temperature = newTemp;
@@ -47,6 +52,10 @@ class Thermostat {
   powerSavingSetMax() {
     // used for tests to avoid repetiton of thermostat.up()
     this.temperature = 25;
+  }
+  nonPowerSavingSetMax() {
+    // used for tests to avoid repetiton of thermostat.up()
+    this.temperature = 32;
   }
 }
 module.exports = Thermostat;
