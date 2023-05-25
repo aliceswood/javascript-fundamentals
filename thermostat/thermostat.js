@@ -32,5 +32,13 @@ class Thermostat {
   getPowerSavingStatus() {
     return this.powersaving;
   }
+
+  changePowerSavingStatus() {
+    if (this.powersaving === true) {
+      return (this.powersaving = false);
+    } else {
+      return (this.powersaving = true);
+    }
+  }
 }
 module.exports = Thermostat;

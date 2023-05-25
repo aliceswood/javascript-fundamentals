@@ -31,4 +31,16 @@ describe("Thermostat", () => {
     const thermostat = new Thermostat();
     expect(thermostat.getPowerSavingStatus()).toEqual(true);
   });
+
+  it("changes the PowerSavingStatus from true to false", () => {
+    const thermostat = new Thermostat();
+    expect(thermostat.getPowerSavingStatus()).toEqual(true);
+    expect(thermostat.changePowerSavingStatus()).toBe(false);
+  });
+
+  it("changes the PowerSavingStatus back to true", () => {
+    const thermostat = new Thermostat();
+    thermostat.changePowerSavingStatus();
+    expect(thermostat.changePowerSavingStatus()).toBe(true);
+  });
 });
