@@ -29,19 +29,21 @@ describe("Thermostat", () => {
 
   it("has PowerSaving mode on by default, returns true", () => {
     const thermostat = new Thermostat();
-    expect(thermostat.getPowerSavingStatus()).toEqual(true);
+    expect(thermostat.getPowerSavingMode()).toEqual(true);
   });
 
-  it("changes the PowerSavingStatus from true to false", () => {
+  it("changes the PowerSavingMode from true to false", () => {
     const thermostat = new Thermostat();
-    expect(thermostat.getPowerSavingStatus()).toEqual(true);
-    expect(thermostat.changePowerSavingStatus()).toBe(false);
+    expect(thermostat.getPowerSavingMode()).toEqual(true);
+    thermostat.setPowerSavingMode(false);
+    expect(thermostat.getPowerSavingMode()).toEqual(false);
   });
 
-  it("changes the PowerSavingStatus back to true", () => {
+  it("changes the PowerSavingMode back to true", () => {
     const thermostat = new Thermostat();
-    thermostat.changePowerSavingStatus();
-    expect(thermostat.changePowerSavingStatus()).toBe(true);
+    thermostat.setPowerSavingMode(false);
+    thermostat.setPowerSavingMode(true);
+    expect(thermostat.getPowerSavingMode()).toEqual(true);
   });
 
   it("caps the temperature at 25 degrees is PowerSaving is on", () => {
@@ -54,7 +56,7 @@ describe("Thermostat", () => {
 
   it("caps the temperature at 32 degrees is PowerSaving is off", () => {
     const thermostat = new Thermostat();
-    thermostat.changePowerSavingStatus();
+    thermostat.setPowerSavingMode(false);
     thermostat.nonPowerSavingSetMax();
     expect(() => {
       thermostat.up();

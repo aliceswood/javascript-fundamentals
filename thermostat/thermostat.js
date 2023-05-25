@@ -9,10 +9,10 @@ class Thermostat {
   }
 
   up() {
-    if (this.getPowerSavingStatus() === true && this.temperature === 25) {
+    if (this.getPowerSavingMode() === true && this.temperature === 25) {
       throw new Error("Thermostat is already set to PowerSaving max: 25");
     } else if (
-      this.getPowerSavingStatus() === false &&
+      this.getPowerSavingMode() === false &&
       this.temperature === 32
     ) {
       throw new Error("Thermostat is already set to max: 32");
@@ -31,16 +31,12 @@ class Thermostat {
     }
   }
 
-  getPowerSavingStatus() {
+  getPowerSavingMode() {
     return this.powersaving;
   }
 
-  changePowerSavingStatus() {
-    if (this.powersaving === true) {
-      return (this.powersaving = false);
-    } else {
-      return (this.powersaving = true);
-    }
+  setPowerSavingMode(trueOrFalse) {
+    this.powersaving = (trueOrFalse)
   }
 
   reset() {
