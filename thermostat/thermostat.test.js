@@ -12,4 +12,10 @@ describe("Thermostat", () => {
     thermostat.up();
     expect(thermostat.getTemperature()).toBe(22);
   });
+
+  test("the thermostat changes when using the down function", () => {
+    const thermostat = new Thermostat();
+    thermostat.down();
+    expect(thermostat.getTemperature()).toBe(19);
+  });
 });

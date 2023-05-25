@@ -12,5 +12,11 @@ class Thermostat {
       this.temperature = newTemp;
       return newTemp;
   }
+
+  down() {
+    let newTemp = this.temperature - 1;
+    this.temperature = newTemp;
+    return newTemp;
+  }
 }
 module.exports = Thermostat;
