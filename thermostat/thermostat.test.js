@@ -5,4 +5,11 @@ describe("Thermostat", () => {
     const thermostat = new Thermostat();
     expect(thermostat.getTemperature()).toEqual(20);
   });
+
+  test("the thermostat changes when using the up function", () => {
+    const thermostat = new Thermostat();
+    thermostat.up();
+    thermostat.up();
+    expect(thermostat.getTemperature()).toBe(22);
+  });
 });

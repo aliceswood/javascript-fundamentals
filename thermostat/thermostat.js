@@ -6,5 +6,11 @@ class Thermostat {
   getTemperature() {
     return this.temperature;
   }
+
+  up() {
+    let newTemp = this.temperature + 1;
+      this.temperature = newTemp;
+      return newTemp;
+  }
 }
 module.exports = Thermostat;
