@@ -9,9 +9,13 @@ class Thermostat {
   }
 
   up() {
-    let newTemp = this.temperature + 1;
+    if (this.getPowerSavingStatus() === true && this.temperature === 25) {
+      throw new Error("Thermostat is already set to PowerSaving max: 25");
+    } else {
+      let newTemp = this.temperature + 1;
       this.temperature = newTemp;
       return newTemp;
+    }
   }
 
   down() {
@@ -24,11 +28,6 @@ class Thermostat {
     }
   }
 
-  setTempTo10() {
-    // used for tests to avoid repetiton of thermostat.down()
-    this.temperature = 10;
-  }
-
   getPowerSavingStatus() {
     return this.powersaving;
   }
@@ -39,6 +38,15 @@ class Thermostat {
     } else {
       return (this.powersaving = true);
     }
+  }
+
+  setTempTo10() {
+    // used for tests to avoid repetiton of thermostat.down()
+    this.temperature = 10;
+  }
+  powerSavingSetMax() {
+    // used for tests to avoid repetiton of thermostat.up()
+    this.temperature = 25;
   }
 }
 module.exports = Thermostat;

@@ -43,4 +43,12 @@ describe("Thermostat", () => {
     thermostat.changePowerSavingStatus();
     expect(thermostat.changePowerSavingStatus()).toBe(true);
   });
+
+  it("caps the temperature at 25 degrees is PowerSaving is on", () => {
+    const thermostat = new Thermostat();
+    thermostat.powerSavingSetMax();
+    expect(() => {
+      thermostat.up();
+    }).toThrow("Thermostat is already set to PowerSaving max: 25");
+  });
 });
