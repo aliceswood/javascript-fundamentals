@@ -62,5 +62,15 @@ class Thermostat {
     // used for tests to avoid repetiton of thermostat.up()
     this.temperature = 32;
   }
+
+  currentUsage() {
+    if (this.temperature < 18) {
+      return "Low-Usage";
+    } else if ((this.temperature = 18 && this.temperature <= 25)) {
+      return "Medium-Usage";
+    } else {
+      return "High-Usage";
+    }
+  }
 }
 module.exports = Thermostat;

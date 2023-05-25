@@ -67,4 +67,22 @@ describe("Thermostat", () => {
     expect(thermostat.getTemperature()).toBe(25);
     expect(thermostat.reset()).toEqual(20);
   });
+
+  it("will return low-usage for temperatures < 18", () => {
+    const thermostat = new Thermostat();
+    thermostat.setTempTo10();
+    expect(thermostat.currentUsage()).toBe("Low-Usage");
+  });
+
+  it("will return medium-usage for temperatures from 18 to 25 degrees", () => {
+    const thermostat = new Thermostat();
+    thermostat.powerSavingSetMax();
+    expect(thermostat.currentUsage()).toBe("Medium-Usage");
+  });
+
+  it("will return high-usage for temperatures higher than 25 degrees", () => {
+    const thermostat = new Thermostat();
+    thermostat.nonPowerSavingSetMax();
+    expect(thermostat.currentUsage()).toBe("High-Usage");
+  });
 });
