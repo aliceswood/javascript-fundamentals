@@ -1,8 +1,12 @@
+class Pokedex{
+  constructor() {
+    this.pokedex = []
+  }
 
-  const fetchPokemon = (pokemonName) => {
+  fetchPokemon(pokemonName) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => response.json())
-      // .then((data) => console.log(data));
+     
       .then((data)=> {
         let pokemonDetails = {
           name: data.name,
@@ -13,10 +17,9 @@
             return pokemon.type.name
           })
         }
-        return console.log(pokemonDetails);
+        return pokemonDetails;
       });
   };
 
-
-
-module.exports = fetchPokemon;
+}
+module.exports = Pokedex;
